@@ -2,7 +2,7 @@ import React from 'react';
 import view from './FormsControls.module.css'
 
 const FormControl = ({ input, meta, child, ...props }) => {
-    debugger;
+
     const hasError = meta.touched && meta.error;
     return (
         <div className={view.form_control + ' ' + (hasError ? view.error : '')}>

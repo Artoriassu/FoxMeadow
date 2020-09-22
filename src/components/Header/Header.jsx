@@ -7,7 +7,8 @@ const Header = (props) => {
     <header className={view.header}>
       <img className={view.logo} src='https://www.logologo.com/logos/fox-logo.jpg' />
       <div className={view.loginBlock}>
-        {props.isAuth ? props.login
+        {props.isAuth 
+        ? <div> {props.login} - <button onClick={props.logout}>Log out</button> </div>
           : <NavLink to={'/login'}>Login </NavLink>}
       </div>
     </header>
