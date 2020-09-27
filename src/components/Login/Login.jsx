@@ -5,7 +5,7 @@ import { Field, reduxForm } from 'redux-form';
 import { login } from '../../redux/auth-reducer';
 import { maxLengthCreator, required } from '../../utils/validators/validators';
 import { Input } from '../common/FormsControls/FormsControls';
-
+import view from '../common/FormsControls/FormsControls.module.css'
 const maxLength = maxLengthCreator(25);
 
 const LoginForm = (props) => {
@@ -23,6 +23,9 @@ const LoginForm = (props) => {
                 <Field component={Input} name={'rememberMe'} type={'checkbox'}
                 /> remember me
             </div>
+            { props.error && <div className={view.formSummaryError}>
+                {props.error}
+            </div>}
             <div>
                 <button>Login</button>
             </div>
