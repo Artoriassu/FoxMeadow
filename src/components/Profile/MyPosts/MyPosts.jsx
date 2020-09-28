@@ -7,8 +7,8 @@ import Post from './Post/Post';
 
 const maxLength = maxLengthCreator(10);
 
-function MyPosts(props) {
-
+const MyPosts = React.memo(props => {
+    
     let posts_Elements = props.posts_Data.map(post_info => <Post counter={post_info.counter} message={post_info.message} />)
 
     let onAddPost = (values) => {
@@ -24,7 +24,7 @@ function MyPosts(props) {
 
         </div>
     )
-}
+});
 
 const AddNewPostForm = (props) => {
     return (
