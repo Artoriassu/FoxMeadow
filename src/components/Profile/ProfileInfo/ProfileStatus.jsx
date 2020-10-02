@@ -1,5 +1,4 @@
 import React from 'react';
-import view from './ProfileInfo.module.css';
 
 class ProfileStatus extends React.Component {
 
@@ -24,7 +23,6 @@ class ProfileStatus extends React.Component {
             status: e.currentTarget.value
         })
     }
-
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.status !== this.props.status) {
 

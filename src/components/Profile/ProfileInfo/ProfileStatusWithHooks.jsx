@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import view from './ProfileInfo.module.css';
 
 const ProfileStatusWithHooks = (props) => {
 
@@ -39,8 +38,5 @@ const ProfileStatusWithHooks = (props) => {
         </div >
     )
 }
-
-
-
 
 export default ProfileStatusWithHooks;
