@@ -15,7 +15,7 @@ let initialState = {
     ],
 };
 
-test('length of posts should be incremented', () => {
+/* test('length of posts should be incremented', () => {
     //1. test data
     let action = addPost_actionCreator('test_post_text');
     //2. action
@@ -40,4 +40,4 @@ test('after deleting length of messages shouldn`t be changed if id is incorrect'
     let action = deletePost(-6);
     let newState = profileReducer(initialState, action);
     expect(newState.posts_Data.length).toBe(7);
-});
+}); */
