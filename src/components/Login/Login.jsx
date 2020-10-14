@@ -4,14 +4,17 @@ import { Redirect } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 import { login } from '../../redux/auth-reducer';
 import { maxLengthCreator, required } from '../../utils/validators/validators';
-import { Input } from '../common/FormsControls/FormsControls';
+import { createField, Input } from '../common/FormsControls/FormsControls';
 import view from '../common/FormsControls/FormsControls.module.css'
 const maxLength = maxLengthCreator(25);
 
 const LoginForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
-            <div>
+            {createField('Email', 'email', [required], Input)}
+            {createField('Password', 'password', [required], Input, { type: 'password' })}
+            {createField(null, 'rememberMe', [], Input, { type: 'checkbox' }, 'rememberMe')}
+            {/* <div>
                 <Field placeholder={'Email'} name={'email'} component={Input}
                     validate={[required, maxLength]} />
             </div>
@@ -22,7 +25,7 @@ const LoginForm = (props) => {
             <div>
                 <Field component={Input} name={'rememberMe'} type={'checkbox'}
                 /> remember me
-            </div>
+            </div> */}
             { props.error && <div className={view.formSummaryError}>
                 {props.error}
             </div>}

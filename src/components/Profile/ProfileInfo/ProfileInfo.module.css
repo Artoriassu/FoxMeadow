@@ -7,3 +7,12 @@ border-radius: 50px;
 .description{
     padding-left: 12px;
 }
+
+.mainPhoto{
+    margin: 5px;
+    width: 15%;
+    height: 15%;
+}
+.contact{
+    padding-left: 10px;
+}
