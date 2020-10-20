@@ -6,26 +6,18 @@ import { login } from '../../redux/auth-reducer';
 import { maxLengthCreator, required } from '../../utils/validators/validators';
 import { createField, Input } from '../common/FormsControls/FormsControls';
 import view from '../common/FormsControls/FormsControls.module.css'
-const maxLength = maxLengthCreator(25);
 
 const LoginForm = (props) => {
+    debugger;
     return (
         <form onSubmit={props.handleSubmit}>
             {createField('Email', 'email', [required], Input)}
             {createField('Password', 'password', [required], Input, { type: 'password' })}
             {createField(null, 'rememberMe', [], Input, { type: 'checkbox' }, 'rememberMe')}
-            {/* <div>
-                <Field placeholder={'Email'} name={'email'} component={Input}
-                    validate={[required, maxLength]} />
-            </div>
-            <div>
-                <Field placeholder={'Password'} name={'password'} component={Input}
-                    type={'password'} validate={[required, maxLength]} />
-            </div>
-            <div>
-                <Field component={Input} name={'rememberMe'} type={'checkbox'}
-                /> remember me
-            </div> */}
+
+            {props.captchaUrl && <img src={props.captchaUrl} />}
+            {props.captchaUrl && createField('Symbols from image', 'captcha', [required], Input, {})}
+
             { props.error && <div className={view.formSummaryError}>
                 {props.error}
             </div>}
@@ -41,18 +33,19 @@ const LoginReduxForm = reduxForm({
 
 const Login = (props) => {
     const onSubmit = (formdata) => {
-        props.login(formdata.email, formdata.password, formdata.rememberMe)
+        props.login(formdata.email, formdata.password, formdata.rememberMe, formdata.captcha)
     }
     if (props.isAuth) {
         return <Redirect to={'/profile'} />
     }
     return <div>
         <h1>Login</h1>
-        <LoginReduxForm onSubmit={onSubmit} />
+        <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />
     </div>
 }
 const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
+    captchaUrl: state.auth.captchaUrl,
 })
 
 export default connect(mapStateToProps, { login })(Login);
