@@ -4,8 +4,29 @@ import { connect } from 'react-redux';
 import { getUserProfile, getStatus, updateStatus, savePhoto, saveProfile } from '../../redux/profileReducer';
 import { withRouter, Redirect } from 'react-router-dom';
 import { compose } from 'redux';
+import { AppStateType } from '../../redux/redux-store';
+import { profileType } from '../../types/types';
 
-class ProfileContainer extends React.Component {
+type MapStatePropsType = {
+  profile: profileType | null
+  status: string
+  authorizedUserId: number | null
+  isAuth: boolean
+}
+type MapDispatchPropsType = {
+  getUserProfile: (userId: number) => void
+  getStatus: (userId: number) => void
+  savePhoto: (file: any) => void
+  updateStatus: (status: string) => void 
+  saveProfile: (profile: profileType) => void
+}
+type OwnPropsType = {
+  match: any
+  history: any
+}
+type PropsType = MapStatePropsType & MapDispatchPropsType & OwnPropsType
+
+class ProfileContainer extends React.Component<PropsType> {
 
   refreshProfile() {
     let userId = this.props.match.params.userId;
@@ -22,7 +43,7 @@ class ProfileContainer extends React.Component {
   componentDidMount() {
     this.refreshProfile();
   }
-  componentDidUpdate(prevProps, prevState, snapshot) {
+  componentDidUpdate(prevProps : any, prevState: any, snapshot: any) {
     if (this.props.match.params.userId != prevProps.match.params.userId) {
       this.refreshProfile();
     }
@@ -37,7 +58,7 @@ class ProfileContainer extends React.Component {
   }
 }
 
-let mapStateToProps = (state) => ({
+let mapStateToProps = (state: AppStateType) => ({
   profile: state.profilePage.profile,
   status: state.profilePage.status,
   authorizedUserId: state.auth.userId,
@@ -46,6 +67,6 @@ let mapStateToProps = (state) => ({
 })
 
 export default compose(
-  connect(mapStateToProps, { getUserProfile, getStatus, updateStatus, savePhoto, saveProfile }),
+  connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>(mapStateToProps, { getUserProfile, getStatus, updateStatus, savePhoto, saveProfile  }),
   withRouter,
 )(ProfileContainer);

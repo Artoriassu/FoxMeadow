@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { postsDataType } from '../../../types/types';
 import { maxLengthCreator, required } from '../../../utils/validators/validators';
 import { Textarea } from '../../common/FormsControls/FormsControls';
 import view from './MyPosts.module.css';
@@ -7,11 +8,16 @@ import Post from './Post/Post';
 
 const maxLength = maxLengthCreator(10);
 
-const MyPosts = React.memo(props => {
+type PropsType = {
+    addPost: (newPostText: string) => void
+    posts_Data: Array<postsDataType>
+   // newPostText: string
+}
+const MyPosts:React.FC<PropsType> = React.memo(props => {
     
     let posts_Elements = props.posts_Data.map(post_info => <Post key={post_info.id} counter={post_info.counter} message={post_info.message} />)
 
-    let onAddPost = (values) => {
+    let onAddPost = (values: any) => {
         props.addPost(values.newPostText);
     }
     return (
@@ -26,7 +32,7 @@ const MyPosts = React.memo(props => {
     )
 });
 
-const AddNewPostForm = (props) => {
+const AddNewPostForm = (props: any) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
@@ -34,7 +40,7 @@ const AddNewPostForm = (props) => {
                 validate={[required, maxLength ]}/>
             </div>
             <div>
-                <button >Add</button>
+                <button className={view.mesButton}>Add</button>
             </div>
         </form>
     )

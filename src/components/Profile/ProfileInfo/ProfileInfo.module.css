@@ -12,7 +12,13 @@ border-radius: 50px;
     margin: 5px;
     width: 15%;
     height: 15%;
+    border:  2px ridge #2b6923;
+    border-radius: 100%;
 }
 .contact{
     padding-left: 10px;
+    font-family: cursive;
+}
+.ProfileDescr{
+    font-family: cursive;
 }

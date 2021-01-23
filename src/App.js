@@ -13,7 +13,9 @@ import { compose } from 'redux';
 import Preloader from './components/common/Preloader/Preloader';
 import store from './redux/redux-store';
 import { findAllInRenderedTree } from 'react-dom/test-utils';
-
+import * as view from './App.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapSigns } from '@fortawesome/free-solid-svg-icons';
 
 class App extends React.Component {
   catchAllUnhandledErrors = (reason, promise) => {
@@ -38,19 +40,24 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/"
               render={() => <Redirect to={'/profile'} />} />
+              <Route exact path="/site"
+              render={() => <Redirect to={'/profile'} />} />
             <Route path="/dialogs"
               render={() => <DialogsContainer />} />
             <Route path="/profile/:userId?"
               render={() => <ProfileContainer />} />
             <Route path="/users"
-              render={() => <UsersContainer />} />
+              render={() => <UsersContainer pageTitle={'Potential Friends'}/>} />
             <Route path="/news" />
             <Route path="/music" />
             <Route path="/settings" />
             <Route path="/login"
               render={() => <LoginPage />} />
             <Route path="*"
-              render={() => <div>404 PAGE NOT FOUND</div>} />
+              render={() => <div className={view.wrongPage}> 
+              <h4>Sorry, we can`t find this page.</h4>
+             <FontAwesomeIcon icon={faMapSigns} className={view.faWrongPage}/>
+              </div>} />
           </Switch>
         </div>
       </div>

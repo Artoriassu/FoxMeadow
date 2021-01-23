@@ -1,3 +1,27 @@
 .selectedPage {
-    font-weight: bold;
+    font-weight: bold;  
+}
+.page{
+    display: inline-block;
+    background: #5da130;
+    border: 2px ridge #2b6923;
+    border-radius: 100%;
+    /* border-color:#b75800b7; */
+    padding: 2px 5px;
+    outline: none;
+}
+.page:hover{
+    box-shadow: inset 0px 0px 7px 5px rgba(0, 255, 255, 0.542);;
+}
+.pageButton{
+    outline: none;
+    padding: 2px 6px 3px 6px; /* верх право низ лево */
+    margin: 15px 4px 15px 4px;
+    border: 1px outset #b75800;
+    border-radius: 50px;
+    background-color: #ffd995 ;
+    font-size: 15px;   
+}
+.pageButton:hover {
+    background-color: #fdc665;
 }

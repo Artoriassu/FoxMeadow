@@ -7,9 +7,9 @@ let initialState = {
         { id: 'fairy_shadow', avatar: 'http://avatarmaker.ru/img/11/1041/104096.gif', person: "Elfi" },
     ],
 };
+type initialStateType = typeof initialState
+const sidebarReducer = (state = initialState, action: any): initialStateType => {
 
-const sidebarReducer = (state = initialState,action) => {
-    
     return state;
 }
 

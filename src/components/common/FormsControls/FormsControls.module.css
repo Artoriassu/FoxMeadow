@@ -1,13 +1,106 @@
 .form_control.error input, .form_control.error textarea {
-    border: 2px red solid;
+    box-shadow: 0px 0px 10px 1px  rgb(255, 16, 16);
 }
 
 .form_control.error span {
-    color: red;
+    color:rgba(114, 12, 12, 0.712);
 }
 
 .formSummaryError {
-    border: 1px red solid;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px rgba(114, 12, 12, 0.712) solid;
+    box-shadow: 0px 0px 10px 1px  rgb(255, 16, 16);
+    border-radius: 50px;
     padding: 5px;
-    color: red;
+    color: rgba(114, 12, 12, 0.712);
+    text-align: center;
+}
+
+.searchButton {
+    margin-left: 5px;
+    font-size: 80%;
+    font-weight: 600;
+    color: #d3ff99;/*  rgb(200, 170, 255) */
+    text-decoration: none;
+    text-shadow: 0 -1px 2px rgba(0, 0, 0, .2);
+    padding: 3px 5px;
+    outline: none;
+    border-radius: 100%;
+    border-color:#b75800b7;
+    background: #2b6923;
+    box-shadow: 0 1px rgba(255, 255, 255, .2) inset, 0 3px 5px rgba(0, 1, 6, .5), 0 0 1px 1px rgba(0, 1, 6, .2);
+}
+.searchButton:hover{
+    color: aqua;
+}
+.searchField {
+    background-color: #d3ff99;
+    margin-left: 5px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border: 2px;
+    padding-left: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 15px;
+    outline: none;
+    border-style:groove;
+    border-color: #699b44;
+}
+
+.searchField::placeholder {
+    color: gray;
+    font-style: italic;
+}
+
+.searchField:focus {
+    box-shadow: 0px 0px 5px 1px aqua;
+}
+
+.LoginInput{
+    font-size: 15px;
+    border-radius: 15px;
+    padding-left: 10px;
+    border-style: ridge;
+    margin-bottom: 5px;
+
+    background-color: #d3ff99;
+    border: 2px;
+    padding-left: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 15px;
+    outline: none;
+    border-style:groove;
+    border-color: #699b44;
+}
+.LoginInput:focus {
+    box-shadow: 0px 0px 5px 1px aqua;
+}
+.LoginInput::placeholder {
+    color: gray;
+    font-style: italic;
+}
+.textArea{
+    height: 100px;
+    width: 250px;
+    background-color: #d3ff99;
+    margin-left: 5px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border: 2px;
+    padding-left: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 15px;
+    outline: none;
+    border-style:groove;
+    border-color: #699b44;
+}
+
+.textArea::placeholder {
+    color: gray;
+    font-style: italic;
 }

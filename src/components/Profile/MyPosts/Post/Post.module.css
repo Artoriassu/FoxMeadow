@@ -1,8 +1,21 @@
-.item{
-color: red;
+.item {
+    display: block;
 }
 
-.item img{
-width: 25px;
-border-radius: 5px;
+.item img {
+    margin-top: 10px;
+    
+    width: 25px;
+    border-radius: 5px;
+}
+
+.itemMessage {
+    margin-left: 15px;
+}
+
+.itemLike {
+    margin-top: 5px;
+    margin-left: 15px;
+    font-family: cursive;
+    border-bottom: 1px solid green;
 }

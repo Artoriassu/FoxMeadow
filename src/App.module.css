@@ -1,0 +1,13 @@
+.wrongPage {
+    font-size: 20px;
+    text-align: center;
+    vertical-align: -webkit-baseline-middle;
+    vertical-align: middle;
+    color:#110902;
+    font-family: cursive;
+}
+
+.faWrongPage {
+    color:#110902;
+    font-size: 100px;
+}

@@ -1,16 +1,83 @@
 .header {
     grid-area: h;
-    background-color: burlywood;
+    background-color: #ffd995;
+    /* background-color: #f3965b; */
+    border-radius: 10px;
+    text-shadow: 0 -1px 2px rgba(0, 0, 0, .2);
+    outline: none;
+    border-color: #b75800;
+    box-shadow: inset 0px 0px 2px 2px #b75800, inset 0px 0px 10px 3px #00000083;
+    line-height: 55px;
+    /* для центрирования/выравнивания текста */
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 100px auto auto 180px;
+    grid-template-areas: "h_logo h_name h_area h_login";
 }
 
 .logo {
-    width: 50px;
+    grid-area: h_logo;
+    height: 80%;
+    border-radius: 100px;
+    max-width: 100px;
+    margin-top: 6px;
+    margin-left: 10px;
 }
 
 .loginBlock {
-    float: right;
+    grid-area: h_login;
+    margin-right: 10px;
+    font-family: cursive;
+    text-align: center;
+    /*  background-color: green; */
+    /*   background-image: url('../../assets/logo.svg'); */
 }
 
 .loginBlock a {
     color: #ea3e00;
+    margin-left: 110px;
+    /* форма кнопки */
+    padding-top: 8px;
+    padding-bottom: 12px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #ffd995;
+    border-radius: 50%;
+    border: #b75800 1px;
+    border-style: solid;
+}
+
+.loginBlock a:hover {
+    background-color: #fdc665;
+}
+
+.SiteName {
+    grid-area: h_name;
+    font-size: 30px;
+    font-family: cursive;
+    color: #e23d01;
+    text-shadow: 0px -1px rgba(128, 128, 128, 0.397);
+    /* background-color: sienna; */
+}
+
+.Logged button {
+    color: #ea3e00;
+    /* форма кнопки */
+    padding-top: 8px;
+    padding-bottom: 12px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #ffd995;
+    border-radius: 50%;
+    border: #b75800 1px;
+    border-style: solid;
+    font-family: cursive;
+    text-align: center;
+    text-decoration:underline solid #b75800;
+    font-size: 17px;
+    outline: none;
+
+}
+.Logged button:hover {
+    background-color: #fdc665;
 }
