@@ -11,10 +11,10 @@ type PropsType = {
   isOwner: boolean
   savePhoto: (file: any) => void
   status: string
-  updateStatus: (status: string) => void 
+  updateStatus: (status: string) => void
   saveProfile: (profile: profileType) => void
 }
-const ProfileInfo:React.FC<PropsType> = (props) => {
+const ProfileInfo: React.FC<PropsType> = (props) => {
 
   let [editMode, setEditMode] = useState(false);
 
@@ -27,7 +27,7 @@ const ProfileInfo:React.FC<PropsType> = (props) => {
         props.savePhoto(e.target.files[0]);
       }
     }
-    
+
     const onSubmit = (formdata: any) => {
       //@ts-ignore
       props.saveProfile(formdata).then(() => {
@@ -36,10 +36,19 @@ const ProfileInfo:React.FC<PropsType> = (props) => {
     }
     return (
       <div className={view.description}>
-        <img src={props.profile.photos.large || standartPhoto} className={view.mainPhoto} />
-        {props.isOwner && <input type={'file'} onChange={onMainPhotoSelected} />}
+        <div className={view.profilePhoto}>
+          <img src={props.profile.photos.large || standartPhoto} className={view.mainPhoto} />
+          {props.isOwner &&
+            <div>
+              <input className={view.ProfilePhotoInput} id={"ProfPhoto"} type={'file'} onChange={onMainPhotoSelected} />
+              <label className={view.ProfilePhotoButton} htmlFor={"ProfPhoto"} >
+                Change Photo
+            </label>
+            </div>
+          }
+        </div>
         {editMode
-        //@ts-ignore
+          //@ts-ignore
           ? <ProfileDataForm initialValues={props.profile} profile={props.profile} onSubmit={onSubmit} />
           : <ProfileData profile={props.profile} isOwner={props.isOwner}
             goToEditMode={() => { setEditMode(true) }} />}
@@ -57,7 +66,7 @@ type ProfileDataPropsType = {
 }
 const ProfileData: React.FC<ProfileDataPropsType> = ({ profile, isOwner, goToEditMode }) => {
   return <div>
-    {isOwner && <div><button onClick={goToEditMode}>Edit</button></div>}
+    {isOwner && <div><button className={view.ProfileButton} onClick={goToEditMode}>Edit</button></div>}
     <div className={view.ProfileDescr}><b>Full name</b>: {profile.fullName}</div>
     <div className={view.ProfileDescr}><b>Looking for a job: {profile.lookingForAJob ? 'yes' : 'no'}</b></div>
     {profile.lookingForAJob &&

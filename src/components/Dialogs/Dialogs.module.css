@@ -3,11 +3,28 @@
     grid-template-columns: 2fr 8fr;
 }
 
-.dialog_person {
+.dialog_person_text {
     text-decoration: none;
-    padding-left: 15px;
-    color: green;
-    font-family: Cochin;
+}
+
+.dialog_person {
+    border: 2px outset #b75800;
+    border-radius: 15px;
+    background-color: #ffd89583;
+}
+
+.dialog_person:hover {
+    border: 2px inset #b75800;
+}
+
+.dialog_person img {
+    vertical-align: middle;
+}
+
+.dialog_person a {
+    color: black;
+    font-family: 'Lucida Sans';
+    padding-left: 30px;
 }
 
 .dialog {
@@ -21,26 +38,48 @@
 
 .messages {
     padding: 12px;
+    padding-left: 30px;
 }
-.newMessage_TextArea{
+
+.messages h4 {
+    margin-top: 0px;
+    padding: 0px;
+    padding-left: 12px;
+    font-family: cursive;
+    font-size: 20px;
+}
+
+.message {
+    max-width: 500px;
+    border: 1px ridge  #2b6923;
+    border-radius: 50px;
+    margin: 2px;
+    padding: 5px;
+    padding-left: 12px;
+    box-shadow: inset 0 1px rgba(255, 255, 255, .2) ,inset 0 3px 5px rgba(0, 1, 6, .5),inset 0 0 3px 3px rgba(0, 1, 6, .2);
+
+}
+.newMessage_TextArea {
     padding-top: 25px;
 }
-.mesButton{
+
+.mesButton {
     margin-top: 5px;
     margin-left: 5px;
     font-size: 80%;
     font-weight: 600;
-    color: #d3ff99;/*  rgb(200, 170, 255) */
+    color: #d3ff99;
+    /*  rgb(200, 170, 255) */
     text-decoration: none;
     text-shadow: 0 -1px 2px rgba(0, 0, 0, .2);
     padding: 3px 5px;
     outline: none;
     border-radius: 100%;
-    border-color:#b75800b7;
+    border-color: #b75800b7;
     background: #2b6923;
     box-shadow: 0 1px rgba(255, 255, 255, .2) inset, 0 3px 5px rgba(0, 1, 6, .5), 0 0 1px 1px rgba(0, 1, 6, .2);
 }
-.mesButton:hover{
-    color: aqua;
 
+.mesButton:hover {
+    color: aqua;
 }

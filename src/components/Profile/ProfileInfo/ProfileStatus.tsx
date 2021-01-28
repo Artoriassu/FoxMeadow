@@ -1,5 +1,6 @@
 import React, { ChangeEvent } from 'react';
 
+
 type PropsType = {
     status: string
     updateStatus: (newStatus: string) => void
@@ -47,8 +48,10 @@ class ProfileStatus extends React.Component<PropsType,StateType> {
             <div>
                 {!this.state.editMode &&
                     <div>
-                        <span onDoubleClick={this.activateEditMode}>{this.props.status || `-----`}</span>
+                        <span onDoubleClick={this.activateEditMode}>{this.props.status || `---`}</span>
+                        
                     </div>
+                    
                 }
                 {this.state.editMode &&
                     <div>

@@ -6,7 +6,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Preloader from '../common/Preloader/Preloader';
 import { compose } from 'redux';
-import { getCurrentPage, getFollowingInProgress, getIsFetching, getPageSize, getPortionSize, getSearchedUsers, getSearchWords, gettotalItemsCount, getUsersSelector } from '../../redux/users-selectors';
+import { getAuth, getCurrentPage, getFollowingInProgress, getIsFetching, getPageSize, getPortionSize, getSearchedUsers, getSearchWords, gettotalItemsCount, getUsersSelector } from '../../redux/users-selectors';
 import { UserType } from '../../types/types';
 import { AppStateType } from '../../redux/redux-store';
 
@@ -19,6 +19,7 @@ type MapStatePropsType = {
     portionSize: number
     followingInProgress: Array<number>
     searchWords: string
+    isAuth:boolean
 }
 type MapDispatchPropsType = {
     follow: (userId: number) => void
@@ -58,6 +59,7 @@ class UsersContainer extends React.Component<PropsType> {
                 portionSize={this.props.portionSize}
                 userSearch={this.props.userSearch}
                 searchWords={this.props.searchWords}
+                isAuth={this.props.isAuth}
             />
         </>
     }
@@ -73,7 +75,7 @@ let mapStateToProps = (state: AppStateType): MapStatePropsType => {
         followingInProgress: getFollowingInProgress(state),
         portionSize: getPortionSize(state),
         searchWords: getSearchWords(state),
-        
+        isAuth: getAuth(state),
     }
 }
 
@@ -81,7 +83,7 @@ export default compose(
     //<TStateProps = {}, TDispatchProps = {}, TOwnProps = {}, State = DefaultState>
     connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>(
         mapStateToProps, 
-        {follow, unfollow, /* setCurrentPage */ getUsers, userSearch: actions.userSearch
+        {follow, unfollow, /* setCurrentPage */ getUsers, userSearch: actions.userSearch,
         /* toggleFollowingProgress */
     }),
 )(UsersContainer)

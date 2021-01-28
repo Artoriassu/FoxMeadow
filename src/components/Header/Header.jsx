@@ -10,7 +10,10 @@ const Header = (props) => {
       <div className={view.loginBlock}>
         {props.isAuth 
         ? <div className={view.Logged}> {props.login} - <button onClick={props.logout}>Log out</button> </div>
-          : <NavLink to={'/login'}>Login </NavLink>}
+          : <div>
+            <a href="https://social-network.samuraijs.com/signUp" target="_blank">Registration</a>
+            <NavLink to={'/login'}>Login </NavLink></div>
+            }
       </div>
     </header>
   )

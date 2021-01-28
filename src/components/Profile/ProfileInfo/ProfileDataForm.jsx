@@ -9,7 +9,7 @@ const ProfileDataForm = ({ handleSubmit, profile, error }) => {
         {error && <div className={style.formSummaryError}>
             {error}
         </div>}
-        <div><button >Save</button></div>
+        <div><button className={view.ProfileButton}>Save</button></div>
         <div><b>Full name</b>:{createField('Fullname', 'fullName', [], Input)}</div>
         <div><b>Looking for a job</b>:
             {createField('', 'lookingForAJob', [], Input, { type: 'checkbox' })}

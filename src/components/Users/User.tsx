@@ -9,6 +9,7 @@ type PropType = {
     followingInProgress: Array<number>
     follow: (userId: number) => void
     unfollow: (userId: number) => void
+    isAuth: boolean
 }
 let User: React.FC<PropType> = (props) => {
     let user = props.user;
@@ -25,15 +26,17 @@ let User: React.FC<PropType> = (props) => {
                 <span>Status : <a className={view.stat}>{user.status} </a></span>
             </div>
             <div className={view.FolButton}>
-                {user.followed
+               {props.isAuth ?
+                  (  user.followed
                     ? <button className={view.itemFollowButton} disabled={props.followingInProgress.some(id => id === user.id)} onClick={() => {
                         props.unfollow(user.id);
                     }}>Unfollow</button>
                     : <button className={view.itemFollowButton} disabled={props.followingInProgress.some(id => id === user.id)} onClick={() => {
                         props.follow(user.id);
-                    }}>Follow</button>}
+                    }}>Follow</button>)
+                : null
+               }
             </div>
-            
         </div>
     </div>
 }

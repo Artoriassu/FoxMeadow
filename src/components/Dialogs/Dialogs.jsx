@@ -11,15 +11,21 @@ const DialogItem = (props) => {
     let path = '/dialogs/' + props.id;
     return (
         <div className={view.dialog}>
-            <img src={props.avatar} />
-            <NavLink className={view.dialog_person} to={path}> {props.person}</NavLink>
+            {
+                <NavLink className={view.dialog_person_text} to={path}>
+                    <div className={view.dialog_person}>
+                        <img src={props.avatar} />
+                        <a>{props.person}</a>
+                    </div>
+                </NavLink>
+            }
         </div>
     )
 }
 
 const Message = (props) => {
     return (
-        <div className={view.message}>{props.text}</div>
+        <div className={view.message}><a>- </a> {props.text}</div>
     )
 }
 
@@ -39,11 +45,11 @@ const Dialogs = (props) => {
 
     return (
         <div className={view.dialogs}>
-
             <div className={view.dialogs_items}>
                 {dialogs_Elements}
             </div>
             <div className={view.messages}>
+                <h4>Messages</h4>
                 {messages_Elements}
                 <AddMessageFormRedux onSubmit={addNewMessage} />
             </div>
@@ -55,8 +61,8 @@ const AddMessageForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div className={view.newMessage_TextArea}>
-                <Field component={Textarea} name='newMessageBody' placeholder='Your message' 
-                validate={[required, maxLength ]} />
+                <Field component={Textarea} name='newMessageBody' placeholder='Your message'
+                    validate={[required, maxLength]} />
             </div>
             <div> <button className={view.mesButton}>Add</button> </div>
         </form>

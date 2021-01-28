@@ -11,7 +11,7 @@
     /* для центрирования/выравнивания текста */
     display: grid;
     grid-template-rows: 100%;
-    grid-template-columns: 100px auto auto 180px;
+    grid-template-columns: 100px auto auto 200px;
     grid-template-areas: "h_logo h_name h_area h_login";
 }
 
@@ -35,7 +35,7 @@
 
 .loginBlock a {
     color: #ea3e00;
-    margin-left: 110px;
+    margin-left: 10px;
     /* форма кнопки */
     padding-top: 8px;
     padding-bottom: 12px;

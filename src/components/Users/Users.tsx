@@ -20,6 +20,7 @@ type PropType = {
     unfollow: (userId: number) => void
     userSearch: (searchWords: string) => void
     searchWords: string
+    isAuth:boolean
 }
 export type UserSearchFormValuesTypes = {
     searchWords: string
@@ -52,7 +53,8 @@ const Users: React.FC<PropType> = (props) => {
                 <User key={u.id} user={u}
                     followingInProgress={props.followingInProgress}
                     unfollow={props.unfollow}
-                    follow={props.follow} />)
+                    follow={props.follow}
+                     isAuth={props.isAuth}  />)
         }
     </div>
 }
